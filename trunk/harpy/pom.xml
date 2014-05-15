@@ -11,6 +11,9 @@
 		<org.springframework.spring.version>4.0.4.RELEASE</org.springframework.spring.version>
 		<ch.qos.logback-version>1.1.2</ch.qos.logback-version>
 		<slf4j-version>1.7.5</slf4j-version>
+		<org.mybatis.mybatis.version>3.2.7</org.mybatis.mybatis.version>
+		<org.mybatis.mybatis-spring.version>1.2.2</org.mybatis.mybatis-spring.version>
+		<org.mysql.connector.version>5.1.18</org.mysql.connector.version>
 	</properties>
 
 	<dependencies>
@@ -56,7 +59,7 @@
 			<artifactId>logback-classic</artifactId>
 			<version>${ch.qos.logback-version}</version>
 		</dependency>
-		
+
 		<!-- =================================================== -->
 		<!-- slf4j -->
 		<!-- =================================================== -->
@@ -66,6 +69,32 @@
 			<version>${slf4j-version}</version>
 		</dependency>
 
+		<!-- =================================================== -->
+		<!-- mybatis (persistance layer framework) -->
+		<!-- =================================================== -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${org.mybatis.mybatis.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>${org.mybatis.mybatis-spring.version}</version>
+		</dependency>
+
+		<!-- =================================================== -->
+		<!-- mysql-connector -->
+		<!-- =================================================== -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${org.mysql.connector.version}</version>
+		</dependency>
+
+		<!-- =================================================== -->
+		<!-- jUnit -->
+		<!-- =================================================== -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
