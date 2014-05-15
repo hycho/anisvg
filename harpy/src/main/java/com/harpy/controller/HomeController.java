@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import constants.ConfigurationConstant;
+
 @Controller
 public class HomeController {
 	
@@ -13,10 +15,6 @@ public class HomeController {
   
   @RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
-	  log.info("Home Action Info Log Test");
-	  log.debug("Home Action Debug Log Test");
-	  log.error("Home Action Error Log Test");
-	  
 	  return "/index";
 	}
 }
