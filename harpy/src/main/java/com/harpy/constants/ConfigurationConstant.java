@@ -1,4 +1,4 @@
-package constants;
+package com.harpy.constants;
 
 import org.springframework.core.env.Environment;
 
