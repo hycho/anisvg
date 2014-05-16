@@ -1,4 +1,4 @@
-package com.harpy.sample.contoller.dao;
+package com.harpy.sample.dao;
 
 import java.util.List;
 import java.util.Map;
