@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.harpy.sample.contoller.service.SampleService;
+import com.harpy.sample.service.SampleService;
 
 @Controller
 public class SampleController {
@@ -35,6 +35,8 @@ public class SampleController {
 		sampleService.insertSample(params);
 		sampleService.selectSampleList(params);
 		sampleService.deleteSample(params);
+		
+		sampleService.testTransaction(params);
 		
 		return "/sample";
 	}

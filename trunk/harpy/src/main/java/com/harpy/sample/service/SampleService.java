@@ -1,4 +1,4 @@
-package com.harpy.sample.contoller.service;
+package com.harpy.sample.service;
 
 import java.util.List;
 import java.util.Map;
@@ -48,5 +48,14 @@ public interface SampleService {
 	 * @throws Exception
 	 */
 	public int deleteSample(Map<String, Object> params) throws Exception;
+
+	/**
+	 * 트랜잭션 테스트를 위한 샘플
+	 * 
+	 * @param params
+	 * @return
+	 * @throws Exception
+	 */
+	public int testTransaction(Map<String, Object> params) throws Exception;
 
 }

@@ -1,4 +1,4 @@
-package com.harpy.sample.contoller.service.impl;
+package com.harpy.sample.service.impl;
 
 import java.util.List;
 import java.util.Map;
@@ -8,8 +8,8 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.harpy.sample.contoller.dao.SampleDao;
-import com.harpy.sample.contoller.service.SampleService;
+import com.harpy.sample.dao.SampleDao;
+import com.harpy.sample.service.SampleService;
 
 /**
  * 일반회원관리에 관한비지니스클래스를 정의한다.
@@ -47,6 +47,12 @@ public class SampleServiceImpl implements SampleService {
 	@Transactional(rollbackFor = Exception.class)
 	public int deleteSample(Map<String, Object> params) throws Exception {
 		return sampleDao.deleteSample(params);
+	}
+
+	@Transactional(rollbackFor = {Exception.class})
+	public int testTransaction(Map<String, Object> params) throws Exception {
+		sampleDao.insertSample(params);
+		throw new Exception();
 	}
 
 }

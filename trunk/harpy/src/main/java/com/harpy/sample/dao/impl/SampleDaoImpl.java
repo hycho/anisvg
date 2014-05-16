@@ -1,4 +1,4 @@
-package com.harpy.sample.contoller.dao.impl;
+package com.harpy.sample.dao.impl;
 
 import java.util.List;
 import java.util.Map;
@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
-import com.harpy.sample.contoller.dao.SampleDao;
+import com.harpy.sample.dao.SampleDao;
 import com.harpy.support.spring.HarpySqlSessionDaoSupport;
 
 @Repository("sampleDao")
