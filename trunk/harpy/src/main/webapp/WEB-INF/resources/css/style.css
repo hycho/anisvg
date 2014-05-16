@@ -1,11 +1,25 @@
 body {
-  padding-top: 50px;
+	padding-top: 50px;
 }
+
 .starter-template {
-  padding: 40px 15px;
-  text-align: center;
+	padding: 40px 15px;
+	text-align: center;
 }
+
 .starter-search-div {
-	padding-top:20px;
-	text-align: center;	
+	padding-top: 20px;
+	text-align: center;
+}
+
+.margin-top-20 {
+	margin-top: 20px;
+}
+
+.margin-top-40{
+	margin-top:40px;
+}
+
+.margin-top-60{
+	margin-top:60px;
 }
