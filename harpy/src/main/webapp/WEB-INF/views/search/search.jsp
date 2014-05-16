@@ -20,7 +20,7 @@
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 					<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Project name</a>
+				<a class="navbar-brand" href="/harpy/search">Harpy</a>
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
@@ -43,6 +43,35 @@
 	</div>
 	<!-- /.container -->
 
+	<div class="container margin-top-60" ng-controller="searchController">
+		<div class="row">
+			<div class="col-lg-4">
+				<iframe style="width: 360px;" id="ytplayer" src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"></iframe>
+				<p class="text-danger">As of v7.0.1, Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.</p>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+					magna mollis euismod. Donec sed odio dui.</p>
+				<p>
+					<a class="btn btn-primary" href="#" role="button">View details &raquo;</a>
+				</p>
+			</div>
+			<div class="col-lg-4">
+				<iframe style="width: 360px;" id="ytplayer" src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"></iframe>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+					magna mollis euismod. Donec sed odio dui.</p>
+				<p>
+					<a class="btn btn-primary" href="#" role="button">View details &raquo;</a>
+				</p>
+			</div>
+			<div class="col-lg-4">
+				<iframe style="width: 360px;" id="ytplayer" src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"></iframe>
+				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+					condimentum nibh, ut fermentum massa.</p>
+				<p>
+					<a class="btn btn-primary" href="#" role="button">View details &raquo;</a>
+				</p>
+			</div>
+		</div>
+	</div>
 
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
