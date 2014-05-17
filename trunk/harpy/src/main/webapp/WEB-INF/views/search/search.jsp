@@ -49,11 +49,13 @@
 			<div class="col-lg-4 margin-top-40" ng-repeat="entry in entryList">
 				<div class="div-align-center"><img ng-src="{{entry.media$group.media$thumbnail[0].url}}" class="cursor-pointer" style="width:300px;"/></div>
 				<!-- <iframe style="width: 360px;" id="ytplayer" src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"></iframe>-->
+				<h4 class="ellipsis-300">{{entry.title.$t}}</h4>
+    			<rating ng-model="entry.gd$rating.average" readonly="true"></rating>
 				<p class="text-danger">As of v7.0.1, Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.</p>
 				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
 					magna mollis euismod. Donec sed odio dui.</p>
 				<p>
-					<a class="btn btn-primary" href="#" role="button">View details &raquo;</a>
+					<a class="btn btn-primary" href="#" role="button">MyList 등록 &raquo;</a>
 				</p>
 			</div>
 		</div>

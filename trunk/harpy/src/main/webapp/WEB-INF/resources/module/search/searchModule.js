@@ -10,6 +10,7 @@ searchModule.controller('searchController', ['$scope','$filter','listVideo', fun
 	$scope.bigCurrentPage = 1;
 	$scope.perPage = 30;
 	
+	// keyupEvent search input box
 	$scope.searchVideo = function(keycode) {
 		if (keycode == 13) {
 			listVideo.getVideoHtml($scope.searchText.text, $scope.bigCurrentPage, $scope.perPage, videoMapping);
@@ -22,7 +23,9 @@ searchModule.controller('searchController', ['$scope','$filter','listVideo', fun
 		listVideo.getVideoHtml($scope.searchText.text, $scope.bigCurrentPage, $scope.perPage, videoMapping);
 	};
 	
+	// mapping function video = html
 	var videoMapping = function(data){
+		console.log(data);
 		$scope.entries = {data : $filter("partition")(data.feed.entry, 3)};
 		$scope.bigTotalItems = data.feed.openSearch$totalResults.$t;
 		console.log("$scope.entries = " + $scope.entries);
@@ -30,9 +33,8 @@ searchModule.controller('searchController', ['$scope','$filter','listVideo', fun
 
 }]);
 
+// listVideo Factory Service
 searchModule.factory('listVideo', ['$http', function($http) {
-	
-	
 	return {
 		getVideoHtml : function(name, startIndex, maxResults, callback){
 			var start = ((startIndex-1) * maxResults)+1;
@@ -50,6 +52,7 @@ searchModule.factory('listVideo', ['$http', function($http) {
 	};
 }]);
 
+// partition(groups) filter
 searchModule.filter('partition', function() {
 	var part = function(arr, size) {
 		if(typeof arr != "undefined"){

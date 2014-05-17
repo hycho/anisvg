@@ -11,20 +11,28 @@
 	margin-top: 20px;
 }
 
-.margin-top-40{
-	margin-top:40px;
+.margin-top-40 {
+	margin-top: 40px;
 }
 
-.margin-top-60{
-	margin-top:60px;
+.margin-top-60 {
+	margin-top: 60px;
 }
 
 /** align **/
-.div-align-center{
+.div-align-center {
 	text-align: center;
 }
 
 /** cursor **/
-.cursor-pointer{
+.cursor-pointer {
 	cursor: pointer;
+}
+
+/** overflow **/
+.ellipsis-300 {
+	width: 300px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
