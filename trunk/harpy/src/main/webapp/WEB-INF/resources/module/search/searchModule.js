@@ -1,6 +1,63 @@
-var searchModule = angular.module('searchModule', [ 'ui.bootstrap' ]);
+var searchModule = angular.module('searchModule', ['ui.bootstrap']);
 
-// setting searchContoller.
-searchModule.controller('searchController', function($scope) {
+searchModule.controller('searchController', ['$scope','$filter','listVideo', function ($scope, $filter, listVideo) {
+	$scope.searchText = {text: "You got it"}; 
+	$scope.entries = [];
+	
+	// init paging value
+	$scope.maxSize = 10;
+	$scope.bigTotalItems = 0;
+	$scope.bigCurrentPage = 1;
+	$scope.perPage = 30;
+	
+	$scope.searchVideo = function(keycode) {
+		if (keycode == 13) {
+			listVideo.getVideoHtml($scope.searchText.text, $scope.bigCurrentPage, $scope.perPage, videoMapping);
+		}
+	};
+	
+	//paging
+	$scope.pageChanged = function() {
+		console.log('Page changed to: ' + $scope.bigCurrentPage);
+		listVideo.getVideoHtml($scope.searchText.text, $scope.bigCurrentPage, $scope.perPage, videoMapping);
+	};
+	
+	var videoMapping = function(data){
+		$scope.entries = {data : $filter("partition")(data.feed.entry, 3)};
+		$scope.bigTotalItems = data.feed.openSearch$totalResults.$t;
+		console.log("$scope.entries = " + $scope.entries);
+	};
 
+}]);
+
+searchModule.factory('listVideo', ['$http', function($http) {
+	
+	
+	return {
+		getVideoHtml : function(name, startIndex, maxResults, callback){
+			var start = ((startIndex-1) * maxResults)+1;
+
+			var url = 'http://gdata.youtube.com/feeds/api/videos?alt=json&start-index='+start+'&max-results='+maxResults+'&v=2&q=';
+			
+			$http.get(url+name, {
+				responseType: "json"
+			}).success(function(data, status){
+				callback(data);
+			}).error(function(data, status){
+				
+			});
+		}
+	};
+}]);
+
+searchModule.filter('partition', function() {
+	var part = function(arr, size) {
+		if(typeof arr != "undefined"){
+			if ( 0 === arr.length ) return [];
+		    return [ arr.slice( 0, size ) ].concat( part( arr.slice( size ), size) );
+		}else{
+			return '';
+		}
+	};
+	return part;
 });
