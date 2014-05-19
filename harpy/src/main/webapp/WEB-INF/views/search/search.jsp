@@ -49,7 +49,7 @@
 			<div class="col-lg-3 margin-top-40" ng-repeat="entry in entryList">
 				<div class="div-align-center" style="position: relative;">
 					<img ng-src="{{entry.media$group.media$thumbnail[0].url}}" class="cursor-pointer" style="width:250px;"/>
-					<span class="video-time">0:31</span>
+					<span class="video-time">{{getTime(entry.media$group.media$content[0].duration)}}</span>
 				</div>
 				<!-- <iframe style="width: 360px;" id="ytplayer" src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"></iframe>-->
 				<h4 class="ellipsis-250">{{entry.title.$t}}</h4>
@@ -71,6 +71,10 @@
 	<script src="resources/module/jquery/jquery-1.11.1.min.js"></script>
 	<script src="resources/module/angularjs/angular.min-1.3.0.js"></script>
 	<script src="resources/module/angularjs/ui-bootstrap-tpls-0.11.0.js"></script>
+	<script src="resources/module/moment/moment.min-2.6.0.js"></script>
+	<script src="resources/module/moment/angular-moment.min.js"></script>
+	
+	
 	<!-- Search module -->
 	<script src="resources/module/search/searchModule.js"></script>
 </body>
