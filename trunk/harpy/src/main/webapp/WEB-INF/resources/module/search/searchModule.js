@@ -1,4 +1,4 @@
-var searchModule = angular.module('searchModule', ['ui.bootstrap']);
+var searchModule = angular.module('searchModule', ['ui.bootstrap', 'angularMoment']);
 
 searchModule.controller('searchController', ['$scope','$filter','listVideo', function ($scope, $filter, listVideo) {
 	$scope.searchText = {text: "You got it"}; 
@@ -8,7 +8,7 @@ searchModule.controller('searchController', ['$scope','$filter','listVideo', fun
 	$scope.maxSize = 10;
 	$scope.bigTotalItems = 0;
 	$scope.bigCurrentPage = 1;
-	$scope.perPage = 30;
+	$scope.perPage = 20;
 	
 	// keyupEvent search input box
 	$scope.searchVideo = function(keycode) {
@@ -21,6 +21,27 @@ searchModule.controller('searchController', ['$scope','$filter','listVideo', fun
 	$scope.pageChanged = function() {
 		console.log('Page changed to: ' + $scope.bigCurrentPage);
 		listVideo.getVideoHtml($scope.searchText.text, $scope.bigCurrentPage, $scope.perPage, videoMapping);
+	};
+	
+	$scope.getTime = function(secs){ //이 메소드는 수정좀 하면 참좋을듯 Filter로 빼진 말기. scope에 input이 걸려있어서 -0-
+		var result = "";
+		var hours = Math.floor(secs / (60 * 60));
+	    var divisor_for_minutes = secs % (60 * 60);
+	    var minutes = Math.floor(divisor_for_minutes / 60);
+	    var divisor_for_seconds = divisor_for_minutes % 60;
+	    var seconds = Math.ceil(divisor_for_seconds);
+	    
+	    if(hours < 10) hours = "0"+hours;
+	    if(minutes < 10) minutes = "0"+minutes;
+	    if(seconds < 10) seconds = "0"+seconds;
+	    
+	    if(hours === "00"){
+	    	result = minutes+":"+seconds;
+	    }else{
+	    	result = hours+":"+minutes+":"+seconds; 
+	    }
+	    
+		return result;
 	};
 	
 	// mapping function video = html
