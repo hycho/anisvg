@@ -16,19 +16,19 @@
 		</encoder>
 	</appender>
 
-	<root level="debug">
+	<root level="error">
 		<appender-ref ref="STDOUT" />
 	</root>
 
-	<logger name="com.harpy" level="info">
+	<logger name="com.harpy" level="error">
 		<appender-ref ref="dailyRolling" />
 	</logger>
 	
-	<logger name="java.sql" level="debug" additivity="false">
+	<logger name="java.sql" level="error" additivity="false">
   		<appender-ref ref="STDOUT" />
     </logger>
 
-    <logger name="java.sql.connection" level="info" additivity="false">
+    <logger name="java.sql.connection" level="error" additivity="false">
 	    <appender-ref ref="STDOUT" />
     </logger>
 	

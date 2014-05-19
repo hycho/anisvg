@@ -24,7 +24,7 @@ public class MapQueryMapper extends MappingSqlQuery {
 
 	@Override
 	protected Object mapRow(ResultSet rs, int rownum) throws SQLException {
-		String userid = rs.getString("id");
+		String userid = rs.getString("userid");
 		String password = rs.getString("password");
 		boolean enabled = rs.getBoolean("enabled");
 		
