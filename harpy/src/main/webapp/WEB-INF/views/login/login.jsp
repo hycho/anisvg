@@ -17,9 +17,10 @@
 </head>
 <body>
 	<div class="container">
-		<form class="form-signin" role="form">
+		<form class="form-signin" role="form" action="/harpy/j_spring_security_check" id="loginForm" method="post">
 			<h2 class="form-signin-heading">Please login</h2>
-			<input type="email" class="form-control" placeholder="Email address" required autofocus> <input type="password" class="form-control" placeholder="Password" required> 
+			<input id="j_username" name="j_username" type="text" class="form-control" required autofocus>
+			<input id="j_password" name="j_password" type="password" class="form-control" required> 
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
 		</form>
 	</div>
