@@ -12,7 +12,7 @@ public class SearchController {
 	static final Logger log = LoggerFactory.getLogger(SearchController.class);
 	
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public String home() throws Exception {
+	public String search() throws Exception {
 		log.info("Start Search controller");	
 		
 		return "/search/search";
