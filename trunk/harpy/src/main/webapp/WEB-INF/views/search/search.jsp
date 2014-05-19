@@ -46,10 +46,13 @@
 
 	<div class="container margin-top-60">
 		<div class="row" ng-repeat="entryList in entries.data">
-			<div class="col-lg-4 margin-top-40" ng-repeat="entry in entryList">
-				<div class="div-align-center"><img ng-src="{{entry.media$group.media$thumbnail[0].url}}" class="cursor-pointer" style="width:300px;"/></div>
+			<div class="col-lg-3 margin-top-40" ng-repeat="entry in entryList">
+				<div class="div-align-center" style="position: relative;">
+					<img ng-src="{{entry.media$group.media$thumbnail[0].url}}" class="cursor-pointer" style="width:250px;"/>
+					<span class="video-time">0:31</span>
+				</div>
 				<!-- <iframe style="width: 360px;" id="ytplayer" src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"></iframe>-->
-				<h4 class="ellipsis-300">{{entry.title.$t}}</h4>
+				<h4 class="ellipsis-250">{{entry.title.$t}}</h4>
     			<rating ng-model="entry.gd$rating.average" readonly="true"></rating>
 				<p class="text-danger">As of v7.0.1, Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.</p>
 				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada

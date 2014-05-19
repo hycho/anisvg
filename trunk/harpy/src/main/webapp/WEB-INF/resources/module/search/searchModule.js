@@ -26,7 +26,7 @@ searchModule.controller('searchController', ['$scope','$filter','listVideo', fun
 	// mapping function video = html
 	var videoMapping = function(data){
 		console.log(data);
-		$scope.entries = {data : $filter("partition")(data.feed.entry, 3)};
+		$scope.entries = {data : $filter("partition")(data.feed.entry, 4)};
 		$scope.bigTotalItems = data.feed.openSearch$totalResults.$t;
 		console.log("$scope.entries = " + $scope.entries);
 	};

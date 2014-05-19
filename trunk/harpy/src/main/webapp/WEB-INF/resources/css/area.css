@@ -36,3 +36,17 @@
 	white-space: nowrap;
 	overflow: hidden;
 }
+
+.ellipsis-250 {
+	width: 250px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.ellipsis-200 {
+	width: 200px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
