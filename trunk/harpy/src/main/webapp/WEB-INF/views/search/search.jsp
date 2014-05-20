@@ -15,6 +15,24 @@
 
 </head>
 <body ng-controller="searchController">
+	<script type="text/ng-template" id="repeatModalContents.html">
+        <div class="modal-header">
+            <h3 class="modal-title">I'm a modal!</h3>
+        </div>
+        <div class="modal-body">
+            <ul>
+                <li ng-repeat="item in items">
+                    <a ng-click="selected.item = item">{{ item }}</a>
+                </li>
+            </ul>
+            Selected: <b>{{ selected.item }}</b>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
@@ -41,6 +59,7 @@
 		<div class="starter-search-div">
 			<input type="text" popover="듣고 싶은 음악을 입력해 주세요." popover-trigger="focus" class="form-control" ng-keyup="searchVideo($event.keyCode)" ng-model="searchText.text">
 		</div>
+		<button class="btn btn-default" ng-click="open('lg')">Large modal</button>
 	</div>
 	<!-- /.container -->
 
