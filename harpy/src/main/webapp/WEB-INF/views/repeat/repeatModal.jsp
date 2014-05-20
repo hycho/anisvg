@@ -82,7 +82,7 @@
 			</a>
 		</li>
 		<li style="background-color: #1a1a1a; overflow: hidden;">
-		<span style="line-height: 76px; color: #c03636; float: left; margin: 0 2px; width: 24px; font-size: 10px; text-align: center;"> ▶ </span> 
+			<span style="line-height: 76px; color: #c03636; float: left; margin: 0 2px; width: 24px; font-size: 10px; text-align: center;"> ▶ </span>
 			<a style="display: block; position: relative; height: 45px; cursor: pointer; font-size: 11px; color: #999; text-decoration: none;"> 
 				<span style="margin-left: 0; float: left; margin-right: 8px; margin-left: 2px; margin-top: 4px; position: relative; width: 64px; vertical-align: middle; display: inline-block; overflow: hidden;">
 					<img src="//i1.ytimg.com/vi/VTCQBuYhq_s/default.jpg" data-thumb="//i1.ytimg.com/vi/VTCQBuYhq_s/default.jpg" alt="미리보기 이미지" width="64" />
@@ -97,7 +97,7 @@
 			</a>
 		</li>
 		<li style="background-color: #1a1a1a; overflow: hidden;">
-		<span style="line-height: 76px; color: #c03636; float: left; margin: 0 2px; width: 24px; font-size: 10px; text-align: center;"> ▶ </span> 
+			<span style="line-height: 76px; color: #c03636; float: left; margin: 0 2px; width: 24px; font-size: 10px; text-align: center;"> ▶ </span> 
 			<a style="display: block; position: relative; height: 45px; cursor: pointer; font-size: 11px; color: #999; text-decoration: none;"> 
 				<span style="margin-left: 0; float: left; margin-right: 8px; margin-left: 2px; margin-top: 4px; position: relative; width: 64px; vertical-align: middle; display: inline-block; overflow: hidden;">
 					<img src="//i1.ytimg.com/vi/VTCQBuYhq_s/default.jpg" data-thumb="//i1.ytimg.com/vi/VTCQBuYhq_s/default.jpg" alt="미리보기 이미지" width="64" />
@@ -113,7 +113,7 @@
 		</li>
 	</ol>
 	<div style="color: #999; background: #1a1a1a; width: 400px; height: 40px; float: left; position: relative;">
-	fdfdf
+		<img src="/harpy/resources/images/glyphicons_171_fast_backward.png" alt="" style="width:24; height:24; opacity:0.5;" />
 	</div>
 </div>
 
