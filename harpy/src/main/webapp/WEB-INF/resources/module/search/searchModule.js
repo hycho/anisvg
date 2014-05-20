@@ -10,6 +10,10 @@ searchModule.controller('searchController', ['$scope','$filter','$modal', '$log'
 	$scope.bigCurrentPage = 1;
 	$scope.perPage = 20;
 	
+	$scope.liMouseOver = function(){
+		alert("DD");
+	};
+	
 	// keyupEvent search input box
 	$scope.searchVideo = function(keycode) {
 		if (keycode == 13) {
@@ -64,6 +68,8 @@ searchModule.controller('searchController', ['$scope','$filter','$modal', '$log'
 	    
 		return result;
 	};
+	
+	
 	
 	// mapping function video = html
 	var videoMapping = function(data){
