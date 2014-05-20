@@ -90,7 +90,6 @@
 	<script src="resources/module/jquery/jquery-1.11.1.min.js"></script>
 	<script src="resources/module/angularjs/angular.min-1.3.0.js"></script>
 	<script src="resources/module/angularjs/ui-bootstrap-tpls-0.11.0.js"></script>
-	<script src="resources/module/moment/moment.min-2.6.0.js"></script>
 	<script src="resources/module/moment/angular-moment.min.js"></script>
 	
 	
