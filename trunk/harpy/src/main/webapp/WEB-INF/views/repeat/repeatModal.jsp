@@ -1,9 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<html>
-<head>
-	<link href="resources/css/repeatModal.css" rel="stylesheet">
-</head>
-<body>
 <div style="color: #999; background: #1a1a1a; width: 400px; height: 320px; float: left;">
 	<div style="display: block; background: #1a1a1a; padding-top: 10px; width: 400px;">
 		<iframe style="width: 400px; height: 300px;" frameborder="0" id="ytplayer" src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"></iframe>
@@ -100,6 +95,3 @@
 		</li>
 	</ol>
 </div>
-</body>
-<!--/span-->
-</html>
