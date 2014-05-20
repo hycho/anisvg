@@ -1,6 +1,6 @@
 var searchModule = angular.module('searchModule', ['ui.bootstrap', 'angularMoment']);
 
-searchModule.controller('searchController', ['$scope','$filter','listVideo', function ($scope, $filter, listVideo) {
+searchModule.controller('searchController', ['$scope','$filter','$modal', '$log','listVideo', function ($scope, $filter, $modal, $log, listVideo) {
 	$scope.searchText = {text: "You got it"}; 
 	$scope.entries = [];
 	
@@ -19,9 +19,30 @@ searchModule.controller('searchController', ['$scope','$filter','listVideo', fun
 	
 	//paging
 	$scope.pageChanged = function() {
-		console.log('Page changed to: ' + $scope.bigCurrentPage);
 		listVideo.getVideoHtml($scope.searchText.text, $scope.bigCurrentPage, $scope.perPage, videoMapping);
 	};
+	
+	$scope.items = ['item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9', 'item10', 'item11', 'item12'];
+	$scope.open = function (size) {
+		var modalInstance = $modal.open({
+			//templateUrl: 'repeatModalContents.html',
+			templateUrl: '/harpy/repeatModal',
+			controller: ModalInstanceCtrl,
+			size: size,
+			resolve: {
+		        items: function () {
+		        	return $scope.items;
+		        }
+			}
+	    });
+
+	    modalInstance.result.then(function (selectedItem) {
+	    	$scope.selected = selectedItem;
+	    }, function () {
+	    	$log.info('Modal dismissed at: ' + new Date());
+	    });
+	};
+	
 	
 	$scope.getTime = function(secs){ //이 메소드는 수정좀 하면 참좋을듯 Filter로 빼진 말기. scope에 input이 걸려있어서 -0-
 		var result = "";
@@ -49,10 +70,24 @@ searchModule.controller('searchController', ['$scope','$filter','listVideo', fun
 		console.log(data);
 		$scope.entries = {data : $filter("partition")(data.feed.entry, 4)};
 		$scope.bigTotalItems = data.feed.openSearch$totalResults.$t;
-		console.log("$scope.entries = " + $scope.entries);
 	};
 
 }]);
+
+var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+	$scope.items = items;
+	$scope.selected = {
+		item: $scope.items[0]
+	};
+
+	$scope.ok = function () {
+		$modalInstance.close($scope.selected.item);
+	};
+
+	$scope.cancel = function () {
+		$modalInstance.dismiss('cancel');
+	};
+};
 
 // listVideo Factory Service
 searchModule.factory('listVideo', ['$http', function($http) {
