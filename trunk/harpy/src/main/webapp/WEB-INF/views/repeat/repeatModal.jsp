@@ -1,32 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<!-- <div style="height:300px;">
-<div class="modal-body" style="height:300px; float:left; width:200px; max-height: 200px; overflow: hidden; overflow-y: auto;">
-	<ul>
-		<li ng-repeat="item in items"><a ng-click="selected.item = item">{{ item }}</a></li>
-	</ul>
-	Selected: <b>{{ selected.item }}</b>
-</div>
-
-<div class="modal-body" style="color: #999;background: #1a1a1a; float:left;">
-	fdfdfd
-</div>
-</div>
--->
-
-<style>
-::-webkit-scrollbar {
-	width: 10px;
-	height: 9px;
-}
-
-::-webkit-scrollbar-thumb {
-	border-left-color: #8e8e8e;
-	background: #8e8e8e; :: -webkit-scrollbar-track { border-left-color :
-	#434343;
-	background: #434343;
-	-webkit-box-shadow: inset 0 0 1px #434343;
-}
-</style>
+<html>
+<head>
+	<link href="resources/css/repeatModal.css" rel="stylesheet">
+</head>
+<body>
 <div style="color: #999; background: #1a1a1a; width: 400px; height: 320px; float: left;">
 	<div style="display: block; background: #1a1a1a; padding-top: 10px; width: 400px;">
 		<iframe style="width: 400px; height: 300px;" frameborder="0" id="ytplayer" src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"></iframe>
@@ -123,5 +100,6 @@
 		</li>
 	</ol>
 </div>
-
+</body>
 <!--/span-->
+</html>
