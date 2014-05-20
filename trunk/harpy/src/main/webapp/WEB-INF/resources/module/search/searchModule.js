@@ -10,10 +10,6 @@ searchModule.controller('searchController', ['$scope','$filter','$modal', '$log'
 	$scope.bigCurrentPage = 1;
 	$scope.perPage = 20;
 	
-	$scope.liMouseOver = function(){
-		alert("DD");
-	};
-	
 	// keyupEvent search input box
 	$scope.searchVideo = function(keycode) {
 		if (keycode == 13) {
@@ -92,6 +88,11 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
 
 	$scope.cancel = function () {
 		$modalInstance.dismiss('cancel');
+	};
+	
+	$scope.listOver = function($event){
+		//var target = angular.element($event.target);
+		console.log($event.currentTarget);
 	};
 };
 
