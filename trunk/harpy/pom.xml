@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com</groupId>
 	<artifactId>harpy</artifactId>
@@ -13,6 +12,7 @@
 		<org.springframework.security.spring-security.version>3.2.3.RELEASE</org.springframework.security.spring-security.version>
 		<ch.qos.logback-version>1.1.2</ch.qos.logback-version>
 		<slf4j-version>1.7.5</slf4j-version>
+		<javax.servlet.jstl.version>1.2</javax.servlet.jstl.version>
 		<org.mybatis.mybatis.version>3.2.7</org.mybatis.mybatis.version>
 		<org.mybatis.mybatis-spring.version>1.2.2</org.mybatis.mybatis-spring.version>
 		<org.mysql.connector.version>5.1.18</org.mysql.connector.version>
@@ -69,6 +69,17 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>${org.springframework.security.spring-security.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${org.springframework.security.spring-security.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-expression</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 
 		<!-- =================================================== -->
 		<!-- logback(logging module) -->
@@ -86,6 +97,15 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j-version}</version>
+		</dependency>
+
+		<!-- =================================================== -->
+		<!-- slf4j -->
+		<!-- =================================================== -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${javax.servlet.jstl.version}</version>
 		</dependency>
 
 		<!-- =================================================== -->

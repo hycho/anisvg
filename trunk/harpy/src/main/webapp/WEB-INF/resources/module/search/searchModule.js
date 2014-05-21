@@ -22,7 +22,8 @@ searchModule.controller('searchController', ['$scope','$filter','$modal', '$log'
 		listVideo.getVideoHtml($scope.searchText.text, $scope.bigCurrentPage, $scope.perPage, videoMapping);
 	};
 	
-	$scope.items = ['item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9', 'item10', 'item11', 'item12'];
+	$scope.items = ['item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9', 'item10', 'item11', 'item12']; //이거 사용하나?
+	
 	$scope.open = function (size) {
 		var modalInstance = $modal.open({
 			//templateUrl: 'repeatModalContents.html',
@@ -42,7 +43,6 @@ searchModule.controller('searchController', ['$scope','$filter','$modal', '$log'
 	    	$log.info('Modal dismissed at: ' + new Date());
 	    });
 	};
-	
 	
 	$scope.getTime = function(secs){ //이 메소드는 수정좀 하면 참좋을듯 Filter로 빼진 말기. scope에 input이 걸려있어서 -0-
 		var result = "";
@@ -65,6 +65,17 @@ searchModule.controller('searchController', ['$scope','$filter','$modal', '$log'
 		return result;
 	};
 	
+	$scope.insertRepeat = function(youtubeid, title, desc, thumburl, recommend){
+		console.log("youtubeid = "+youtubeid.substring(youtubeid.lastIndexOf(":")+1)+", title = "+title+", desc = "+desc+", thumburl = "+thumburl+", recommend = "+recommend);
+		/*$http.(url+name, {
+			responseType: "json"
+		}).success(function(data, status){
+			callback(data);
+		}).error(function(data, status){
+			
+		});*/
+	};
+	
 	// mapping function video = html
 	var videoMapping = function(data){
 		console.log(data);
@@ -74,7 +85,7 @@ searchModule.controller('searchController', ['$scope','$filter','$modal', '$log'
 
 }]);
 
-var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+var ModalInstanceCtrl = function ($scope, $modalInstance, $http, items) {
 	$scope.repeat = false;
 	$scope.supple = false;
 	
@@ -97,6 +108,23 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
 	
 	$scope.listLeave = function($event) {
 		angular.element($event.currentTarget).addClass('repeat-leave-color').removeClass('repeat-over-color');
+	};
+	
+	$scope.listClick = function($event) {
+		var curElemJlite = angular.element($event.currentTarget);
+		convertList(curElemJlite);
+	};
+	
+	var convertList = function(elemJlite){
+		angular.forEach(elemJlite.parent(), function(value, key){
+			 var liElem = angular.element(value);
+			 liElem.find(".red-triangle").addClass("display-hide").removeClass("display-show");
+			 liElem.find(".list-number").addClass("display-show").removeClass("display-hide");
+			 liElem.find(".repeat-right-video-thumb").removeClass("red-border");
+		});
+		elemJlite.find(".red-triangle").addClass("display-show").removeClass("display-hide");
+		elemJlite.find(".list-number").addClass("display-hide").removeClass("display-show");
+		elemJlite.find(".repeat-right-video-thumb").addClass("red-border");
 	};
 };
 
