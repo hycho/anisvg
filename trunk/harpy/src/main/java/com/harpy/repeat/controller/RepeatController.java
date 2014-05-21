@@ -30,7 +30,7 @@ public class RepeatController {
 		return "/repeat/repeatModal";
 	}
 	
-	@RequestMapping(value = "/getRepeatList", method = RequestMethod.GET)
+	@RequestMapping(value = "/getRepeatList", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> getRepeatList(HttpServletRequest request) throws Exception {
 		Map<String, Object> result = new HashMap<String, Object>();
 		Map<String, Object> params = CommonUtil.transDataMap(request);

@@ -20,17 +20,17 @@
 		</span>
 	</div>
 	<ol class="repeat-right-video-body">
-		<li class="repeat-right-video-row" ng-mouseover="listOver($event)" ng-mouseleave="listLeave($event)" ng-click="listClick($event)">
+		<li class="repeat-right-video-row" ng-mouseover="listOver($event)" ng-mouseleave="listLeave($event)" ng-click="listClick($event)" ng-repeat="video in videos">
 			<span class="red-triangle display-hide"> ▶ </span>
-			<span class="list-number display-show"> 1 </span>  
+			<span class="list-number display-show"> {{$index+1}} </span>  
 			<a class="repeat-right-video-link" href="#"> 
 				<span class="repeat-right-video-thumb">
-					<img src="//i1.ytimg.com/vi/VTCQBuYhq_s/default.jpg" data-thumb="//i1.ytimg.com/vi/VTCQBuYhq_s/default.jpg" alt="미리보기 이미지" width="64" />
+					<img ng-src="{{video.THUMBURL}}" alt="미리보기 이미지" width="64" />
 				</span>
 				<div class="repeat-right-video-desc">
-					<h4 class="video-title">Westlife - The Rose</h4>
+					<h4 class="video-title">{{video.TITLE}}</h4>
 					<span class="video-author"> 
-						작성자: <b><span>westlifeVEVO</span></b>
+						설명: <b><span>{{video.DESCRIPTION}}</span></b>
 					</span>
 				</div>
 			</a>
