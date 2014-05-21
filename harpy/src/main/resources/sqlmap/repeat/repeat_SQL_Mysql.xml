@@ -5,7 +5,7 @@
 
 	<select id="selectRepeatList" parameterType="java.util.Map" resultType="java.util.HashMap">
 	<![CDATA[
-		SELECT @RNUM = @RNUM+1 AS ROWNUM, SEQ, USERID, YOUTUBEID, TITLE, DESCRIPTION, THUMBURL, RECOMMEND 
+		SELECT SEQ, USERID, YOUTUBEID, TITLE, DESCRIPTION, THUMBURL, RECOMMEND 
 		FROM TB_REPEAT
 		WHERE USERID = #{userId}
 	]]>

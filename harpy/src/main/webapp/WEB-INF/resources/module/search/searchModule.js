@@ -98,14 +98,31 @@ searchModule.controller('searchController', ['$scope','$filter','$modal', '$log'
 
 }]);
 
-var ModalInstanceCtrl = function ($scope, $modalInstance, $http, items) {
+var ModalInstanceCtrl = function ($scope, $modalInstance, $http, $location, items) {
 	$scope.repeat = false;
 	$scope.supple = false;
+	$scope.videos = [];
 	
 	$scope.items = items;
 	$scope.selected = {
 		item: $scope.items[0]
 	};
+	
+	$scope.$watch('$viewContentLoaded', function(){
+		console.log("init modal");
+		var path = $location.absUrl().substr(0, $location.absUrl().lastIndexOf("/"));
+		var params = {
+			userId : angular.element("#userid").val()
+		};
+		
+		$http.post(path+"/getRepeatList", $.param(params), {
+		}).success(function(response, status){
+			$scope.videos = response.data;
+			console.log(response);
+		}).error(function(response, status){
+			alert("ERROR");
+		});
+	});
 
 	$scope.ok = function () {
 		$modalInstance.close($scope.selected.item);
