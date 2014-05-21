@@ -134,6 +134,28 @@
 	text-align: center;
 }
 
+.list-number {
+	line-height: 76px;
+	float: left;
+	margin: 0 2px;
+	width: 24px;
+	font-size: 10px;
+	text-align: center;
+}
+
+.red-border {
+	border : solid 1px;
+	border-color : red;
+}
+
+.display-hide {
+	display: none;
+}
+
+.display-show {
+	display: inline
+}
+
 /** ICON **/
 .btn-media-backward {
 	background: no-repeat url(//s.ytimg.com/yts/imgbin/www-hitchhiker-vflg_V4SB.webp) 0 -223px;
@@ -182,6 +204,10 @@
 	cursor: pointer;
 }
 
-.btn-opacity-4 {
+.btn-opacity-4, .btnOpacity4 {
 	opacity: .4;
+}
+
+.btn-opacity-85, .btnOpacity85 {
+	opacity: .85;
 }

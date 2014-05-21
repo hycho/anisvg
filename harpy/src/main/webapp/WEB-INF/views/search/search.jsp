@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
+
 <!DOCTYPE html>
 <html ng-app="searchModule">
 <head>
@@ -8,13 +11,14 @@
 <title>Welcome to Harpy</title>
 
 <!-- Bootstrap css-->
-<link href="resources/module/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="<c:url value='/resources/module/bootstrap/css/bootstrap.min.css' />" rel="stylesheet">
 <!-- harpy css -->
-<link href="resources/css/style.css" rel="stylesheet">
-<link href="resources/css/area.css" rel="stylesheet">
-<link href="resources/css/repeatModal.css" rel="stylesheet">
+<link href="<c:url value='/resources/css/style.css' />" rel="stylesheet">
+<link href="<c:url value='/resources/css/area.css' />" rel="stylesheet">
+<link href="<c:url value='/resources/css/repeatModal.css' />" rel="stylesheet">
 </head>
 <body ng-controller="searchController">
+	<input type="hidden" id="userid" name="userid" value="<security:authentication property="name"/>" />
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
@@ -55,11 +59,14 @@
 				<!-- <iframe style="width: 360px;" id="ytplayer" src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"></iframe>-->
 				<h4 class="ellipsis-250">{{entry.title.$t}}</h4>
     			<rating ng-model="entry.gd$rating.average" readonly="true"></rating>
-				<p class="text-danger">As of v7.0.1, Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.</p>
+				<p class="text-danger">{{entry.media$group.media$description.$t}}</p>
+				<!--
 				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-					magna mollis euismod. Donec sed odio dui.</p>
+					magna mollis euismod. Donec sed odio dui.
+				</p>
+				-->	
 				<p>
-					<a class="btn btn-primary" href="#" role="button">MyList 등록 &raquo;</a>
+					<a class="btn btn-default" href="#" role="button" ng-click="insertRepeat(entry.id.$t, entry.title.$t, entry.media$group.media$description.$t, entry.media$group.media$thumbnail[0].url, entry.media$group.media$content[0].duration)">MyList 등록 &raquo;</a>
 				</p>
 			</div>
 		</div>
@@ -69,13 +76,13 @@
 		<pagination ng-change="pageChanged()" total-items="bigTotalItems" ng-model="bigCurrentPage" items-per-page="perPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
 	</div>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="resources/module/jquery/jquery-1.11.1.min.js"></script>
-	<script src="resources/module/angularjs/angular.min-1.3.0.js"></script>
-	<script src="resources/module/angularjs/ui-bootstrap-tpls-0.11.0.js"></script>
-	<script src="resources/module/moment/angular-moment.min.js"></script>
+	<script src="<c:url value='/resources/module/jquery/jquery-1.11.1.min.js' />"></script>
+	<script src="<c:url value='/resources/module/angularjs/angular.min-1.3.0.js' />"></script>
+	<script src="<c:url value='/resources/module/angularjs/ui-bootstrap-tpls-0.11.0.js' />"></script>
+	<script src="<c:url value='/resources/module/moment/angular-moment.min.js' />"></script>
 	
 	
 	<!-- Search module -->
-	<script src="resources/module/search/searchModule.js"></script>
+	<script src="<c:url value='/resources/module/search/searchModule.js' />"></script>
 </body>
 </html>

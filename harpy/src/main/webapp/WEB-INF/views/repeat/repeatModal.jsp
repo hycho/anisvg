@@ -15,13 +15,14 @@
 			<img class="btn-media-forward btn-opacity-4" src="http://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="Forward"/>
 		</span>
 		<span class="btn-right-area">
-			<img class="btn-media-repeat btn-opacity-4" src="http://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="Repeat"/>
-			<img class="btn-media-suffle btn-opacity-4" src="http://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="Suffle"/>
+			<img class="btn-media-repeat" ng-class="{btnOpacity85: repeat}" ng-click="repeat=!repeat" src="http://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="Repeat"/>
+			<img class="btn-media-suffle" ng-class="{btnOpacity85: suffle}" ng-click="suffle=!suffle" src="http://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="Suffle"/>
 		</span>
 	</div>
 	<ol class="repeat-right-video-body">
-		<li class="repeat-right-video-row" ng-mouseover="listOver($event)" ng-mouseleave="listLeave($event)">
-			<span class="red-triangle"> ▶ </span> 
+		<li class="repeat-right-video-row" ng-mouseover="listOver($event)" ng-mouseleave="listLeave($event)" ng-click="listClick($event)">
+			<span class="red-triangle display-hide"> ▶ </span>
+			<span class="list-number display-show"> 1 </span>  
 			<a class="repeat-right-video-link" href="#"> 
 				<span class="repeat-right-video-thumb">
 					<img src="//i1.ytimg.com/vi/VTCQBuYhq_s/default.jpg" data-thumb="//i1.ytimg.com/vi/VTCQBuYhq_s/default.jpg" alt="미리보기 이미지" width="64" />
