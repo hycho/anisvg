@@ -77,6 +77,9 @@ searchModule.controller('searchController', ['$scope','$filter','$modal', '$log'
 }]);
 
 var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+	$scope.repeat = false;
+	$scope.supple = false;
+	
 	$scope.items = items;
 	$scope.selected = {
 		item: $scope.items[0]
@@ -90,8 +93,12 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
 		$modalInstance.dismiss('cancel');
 	};
 	
-	$scope.listOver = function($event){
+	$scope.listOver = function($event) {
 		//var target = angular.element($event.target);
+		console.log($event.currentTarget);
+	};
+	
+	$scope.listLeave = function($event) {
 		console.log($event.currentTarget);
 	};
 };
