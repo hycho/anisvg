@@ -65,8 +65,6 @@ searchModule.controller('searchController', ['$scope','$filter','$modal', '$log'
 		return result;
 	};
 	
-	
-	
 	// mapping function video = html
 	var videoMapping = function(data){
 		console.log(data);
@@ -94,12 +92,11 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
 	};
 	
 	$scope.listOver = function($event) {
-		//var target = angular.element($event.target);
-		console.log($event.currentTarget);
+		angular.element($event.currentTarget).addClass('repeat-over-color').removeClass('repeat-leave-color');
 	};
 	
 	$scope.listLeave = function($event) {
-		console.log($event.currentTarget);
+		angular.element($event.currentTarget).addClass('repeat-leave-color').removeClass('repeat-over-color');
 	};
 };
 

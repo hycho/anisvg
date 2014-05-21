@@ -20,7 +20,7 @@
 		</span>
 	</div>
 	<ol class="repeat-right-video-body">
-		<li class="repeat-right-video-row" ng-mouseover="">
+		<li class="repeat-right-video-row" ng-mouseover="listOver($event)" ng-mouseleave="listLeave($event)">
 			<span class="red-triangle"> ▶ </span> 
 			<a class="repeat-right-video-link" href="#"> 
 				<span class="repeat-right-video-thumb">
