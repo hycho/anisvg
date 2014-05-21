@@ -66,7 +66,7 @@
 				</p>
 				-->	
 				<p>
-					<a class="btn btn-default" href="#" role="button" ng-click="insertRepeat(entry.id.$t, entry.title.$t, entry.media$group.media$description.$t, entry.media$group.media$thumbnail[0].url, entry.media$group.media$content[0].duration)">MyList 등록 &raquo;</a>
+					<a class="btn btn-primary" href="#" role="button" ng-click="insertRepeat(entry.id.$t, entry.title.$t, entry.media$group.media$description.$t, entry.media$group.media$thumbnail[0].url, entry.gd$rating.average)">MyList 등록 &raquo;</a>
 				</p>
 			</div>
 		</div>

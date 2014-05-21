@@ -1,6 +1,8 @@
 var searchModule = angular.module('searchModule', ['ui.bootstrap', 'angularMoment']);
 
-searchModule.controller('searchController', ['$scope','$filter','$modal', '$log','listVideo', function ($scope, $filter, $modal, $log, listVideo) {
+searchModule.controller('searchController', ['$scope','$filter','$modal', '$log', '$http', '$location','listVideo', function ($scope, $filter, $modal, $log, $http, $location, listVideo) {
+	$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+	
 	$scope.searchText = {text: "You got it"}; 
 	$scope.entries = [];
 	
@@ -66,14 +68,25 @@ searchModule.controller('searchController', ['$scope','$filter','$modal', '$log'
 	};
 	
 	$scope.insertRepeat = function(youtubeid, title, desc, thumburl, recommend){
-		console.log("youtubeid = "+youtubeid.substring(youtubeid.lastIndexOf(":")+1)+", title = "+title+", desc = "+desc+", thumburl = "+thumburl+", recommend = "+recommend);
-		/*$http.(url+name, {
-			responseType: "json"
+		console.log("youtubeid = "+youtubeid.substring(youtubeid.lastIndexOf(":")+1)+", title = "+title+", desc = "+desc+", thumburl = "+thumburl+", recommend = "+Math.round(recommend));
+		console.log("user id = "+angular.element("#userid").val());
+		
+		var path = $location.absUrl().substr(0, $location.absUrl().lastIndexOf("/"));
+		var params = {
+			userId : angular.element("#userid").val(),
+			youtubeId : youtubeid,
+			title : title,
+			description : desc,
+			thumbUrl : thumburl, 
+			recommend : Math.round(recommend)
+		};
+		
+		$http.post(path+"/insertRepeat", $.param(params), {
 		}).success(function(data, status){
-			callback(data);
+			alert(data.comment);
 		}).error(function(data, status){
-			
-		});*/
+			alert("ERROR");
+		});
 	};
 	
 	// mapping function video = html
