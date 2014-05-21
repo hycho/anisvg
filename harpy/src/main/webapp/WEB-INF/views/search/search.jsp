@@ -12,8 +12,7 @@
 <!-- harpy css -->
 <link href="resources/css/style.css" rel="stylesheet">
 <link href="resources/css/area.css" rel="stylesheet">
-
-
+<link href="resources/css/repeatModal.css" rel="stylesheet">
 </head>
 <body ng-controller="searchController">
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
