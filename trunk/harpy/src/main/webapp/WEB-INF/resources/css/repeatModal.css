@@ -14,12 +14,12 @@
 	-webkit-box-shadow: inset 0 0 1px #434343;
 }
 
-.repeat-first-color {
-	background-color: #1a1a1a;
+.repeat-over-color {
+	background-color: #3a3a3a;
 }
 
-.repeat-second-color {
-	background-color: #3a3a3a;
+.repeat-leave-color {
+	background-color: #1a1a1a;
 }
 
 /** repeat-left-video **/
@@ -77,7 +77,6 @@
 }
 
 .repeat-right-video .repeat-right-video-body .repeat-right-video-row {
-	background-color: #1a1a1a;
 	overflow: hidden;
 	cursor: pointer;
 }
