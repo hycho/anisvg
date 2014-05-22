@@ -74,7 +74,7 @@ searchModule.controller('searchController', ['$scope','$filter','$modal', '$log'
 		var path = $location.absUrl().substr(0, $location.absUrl().lastIndexOf("/"));
 		var params = {
 			userId : angular.element("#userid").val(),
-			youtubeId : youtubeid,
+			youtubeId : youtubeid.substring(youtubeid.lastIndexOf(":")+1),
 			title : title,
 			description : desc,
 			thumbUrl : thumburl, 
@@ -102,6 +102,8 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, $http, $location, item
 	$scope.repeat = false;
 	$scope.supple = false;
 	$scope.videos = [];
+	// youtube player object
+	$scope.player;
 	
 	$scope.items = items;
 	$scope.selected = {
@@ -122,6 +124,9 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, $http, $location, item
 		}).error(function(response, status){
 			alert("ERROR");
 		});
+		
+		initModalPlayer();
+		
 	});
 
 	$scope.ok = function () {
@@ -140,9 +145,30 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, $http, $location, item
 		angular.element($event.currentTarget).addClass('repeat-leave-color').removeClass('repeat-over-color');
 	};
 	
-	$scope.listClick = function($event) {
+	$scope.listClick = function($event, id) {
 		var curElemJlite = angular.element($event.currentTarget);
 		convertList(curElemJlite);
+		playModalPlayer(id);
+	};
+	
+	// init modalplayer via there 
+	var initModalPlayer = function() {
+		$scope.player = new YT.Player('modalPlayer',{
+			width: '400',
+			height: '300'
+			/*events:{
+				'onReady': onPlayerReady,
+				'onStateChange' : onPlayerStateChange
+			}*/
+		});
+	};
+	
+	var playModalPlayer = function(id) {
+		$scope.player.cueVideoById({
+			'videoId': id,
+			'suggestedQuality': 'large'
+		});
+		$scope.player.playVideo();
 	};
 	
 	var convertList = function(elemJlite){
