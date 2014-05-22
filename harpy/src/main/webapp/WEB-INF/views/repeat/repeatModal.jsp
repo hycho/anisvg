@@ -12,8 +12,8 @@
 <div class="repeat-right-video" id="sidebar" role="navigation">
 	<div class="repeat-right-video-head">
 		<span class="btn-left-area">
-			<img class="btn-media-backward btn-opacity-4" src="http://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="Backward"/>
-			<img class="btn-media-forward btn-opacity-4" src="http://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="Forward"/>
+			<img class="btn-media-backward btn-opacity-40" src="http://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="Backward"/>
+			<img class="btn-media-forward btn-opacity-40" src="http://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="Forward"/>
 		</span>
 		<span class="btn-right-area">
 			<img class="btn-media-auto" ng-class="{btnOpacity99: auto.check}" ng-click="auto.check=!auto.check; repeat.check=false; shuffle.check=false" src="http://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="Auto"/>
@@ -22,7 +22,7 @@
 		</span>
 	</div>
 	<ol class="repeat-right-video-body">
-		<li id="vlist{{$index}}" class="repeat-right-video-row" ng-mouseover="listOver($event)" ng-mouseleave="listLeave($event)" ng-click="listClick($event,$index,video.YOUTUBEID)" ng-repeat="video in videos">
+		<li ng-context-menu="menuOptions" id="vlist{{$index}}" attrIndex="{{$index}}" attrSeq="{{video.SEQ}}" class="repeat-right-video-row" ng-mouseover="listOver($event)" ng-mouseleave="listLeave($event)" ng-click="listClick($event,$index,video.YOUTUBEID)" ng-repeat="video in videos">
 			<span class="red-triangle display-hide"> ▶ </span>
 			<span class="list-number display-show"> {{$index+1}} </span>  
 			<a class="repeat-right-video-link" href="#"> 
@@ -30,9 +30,9 @@
 					<img ng-src="{{video.THUMBURL}}" alt="미리보기 이미지" width="64" />
 				</span>
 				<div class="repeat-right-video-desc">
-					<h4 class="video-title">{{video.TITLE}}</h4>
-					<span class="video-author"> 
-						설명: <b><span>{{video.DESCRIPTION}}</span></b>
+					<h4 class="video-title ellipsis-250">{{video.TITLE}}</h4>
+					<span class="video-author">
+						<p class="ellipsis-250"> 설명: {{video.DESCRIPTION}}</p> 
 					</span>
 				</div>
 			</a>
