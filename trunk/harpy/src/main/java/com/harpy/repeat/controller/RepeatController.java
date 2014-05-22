@@ -55,8 +55,14 @@ public class RepeatController {
 	}
 	
 	@RequestMapping(value = "/deleteRepeat", method = RequestMethod.POST)
-	public void deleteRepeat(HttpServletRequest request) throws Exception {
+	public @ResponseBody Map<String, Object> deleteRepeat(HttpServletRequest request) throws Exception {
+		Map<String, Object> result = new HashMap<String, Object>();
 		Map<String, Object> params = CommonUtil.transDataMap(request);
+		
 		repeatService.deleteRepeat(params);
+		
+		result.put("comment", "success");
+		
+		return result;
 	}
 }
