@@ -32,6 +32,7 @@
 					<li class="active"><a href="#">Home</a></li>
 					<li><a href="#about">About</a></li>
 					<li><a href="#contact">Contact</a></li>
+					<li><a href="#" ng-click="open('lg')">반복듣기</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
@@ -45,7 +46,6 @@
 		<div class="starter-search-div">
 			<input type="text" popover="듣고 싶은 음악을 입력해 주세요." popover-trigger="focus" class="form-control" ng-keyup="searchVideo($event.keyCode)" ng-model="searchText.text">
 		</div>
-		<button class="btn btn-default" ng-click="open('lg')">Large modal</button>
 	</div>
 	<!-- /.container -->
 
