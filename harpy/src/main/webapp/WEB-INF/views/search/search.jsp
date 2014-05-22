@@ -80,7 +80,7 @@
 	<script src="<c:url value='/resources/module/angularjs/angular.min-1.3.0.js' />"></script>
 	<script src="<c:url value='/resources/module/angularjs/ui-bootstrap-tpls-0.11.0.js' />"></script>
 	<script src="<c:url value='/resources/module/moment/angular-moment.min.js' />"></script>
-	
+	<script src="https://www.youtube.com/iframe_api"></script>
 	
 	<!-- Search module -->
 	<script src="<c:url value='/resources/module/search/searchModule.js' />"></script>

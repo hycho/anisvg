@@ -3,7 +3,8 @@
 <!-- Repeat modal left video area -->
 <div class="repeat-left-video">
 	<div class="repeat-left-video-body">
-		<iframe style="width: 400px; height: 300px;" frameborder="0" id="ytplayer" src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"></iframe>
+		<!-- <iframe style="width: 400px; height: 300px;" frameborder="0" id="ytplayer" src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"></iframe> -->
+		<div id="modalPlayer"></div>
 	</div>
 </div>
 <!-- /Repeat modal left video area -->
@@ -20,7 +21,7 @@
 		</span>
 	</div>
 	<ol class="repeat-right-video-body">
-		<li class="repeat-right-video-row" ng-mouseover="listOver($event)" ng-mouseleave="listLeave($event)" ng-click="listClick($event)" ng-repeat="video in videos">
+		<li class="repeat-right-video-row" ng-mouseover="listOver($event)" ng-mouseleave="listLeave($event)" ng-click="listClick($event,video.YOUTUBEID)" ng-repeat="video in videos">
 			<span class="red-triangle display-hide"> ▶ </span>
 			<span class="list-number display-show"> {{$index+1}} </span>  
 			<a class="repeat-right-video-link" href="#"> 
