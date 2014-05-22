@@ -22,7 +22,7 @@ public class SampleController {
 	private SampleService sampleService;
 
 	@RequestMapping(value = "/sample", method = RequestMethod.GET)
-	public String home() throws Exception {
+	public String sample() throws Exception {
 		
 		log.debug("!!!!!!!!!!!!!!!!!!");
 		log.info("!!!!!!!!!!!!!!!!!!");
