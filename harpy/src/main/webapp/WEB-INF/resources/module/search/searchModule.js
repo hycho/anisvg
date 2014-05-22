@@ -99,9 +99,16 @@ searchModule.controller('searchController', ['$scope','$filter','$modal', '$log'
 }]);
 
 var ModalInstanceCtrl = function ($scope, $modalInstance, $http, $location, items) {
-	$scope.repeat = false;
-	$scope.supple = false;
+	// 하드코딩을 좋아하지 않지만... Module과 Controller로 분리가 되니 여기에 상수를 선언하고 사용함, 차후 바꿔도 안바꿔도 될듯.
+	$scope.vlistElemStr = "vlist";
+	
+	$scope.repeat = {check: false};
+	$scope.shuffle = {check: false};
+	$scope.auto = {check: false};
+	$scope.num = 0;
 	$scope.videos = [];
+	$scope.playList = [];
+	
 	// youtube player object
 	$scope.player;
 	
@@ -120,13 +127,14 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, $http, $location, item
 		$http.post(path+"/getRepeatList", $.param(params), {
 		}).success(function(response, status){
 			$scope.videos = response.data;
-			console.log(response);
+			angular.forEach(response.data, function(value, key){
+				 $scope.playList.push(value.YOUTUBEID);
+			});
 		}).error(function(response, status){
 			alert("ERROR");
 		});
 		
 		initModalPlayer();
-		
 	});
 
 	$scope.ok = function () {
@@ -145,30 +153,73 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, $http, $location, item
 		angular.element($event.currentTarget).addClass('repeat-leave-color').removeClass('repeat-over-color');
 	};
 	
-	$scope.listClick = function($event, id) {
+	$scope.listClick = function($event, $index, id) {
 		var curElemJlite = angular.element($event.currentTarget);
 		convertList(curElemJlite);
-		playModalPlayer(id);
+		$scope.num = $index;
+		playModalPlayer($scope.num);
 	};
 	
 	// init modalplayer via there 
 	var initModalPlayer = function() {
 		$scope.player = new YT.Player('modalPlayer',{
 			width: '400',
-			height: '300'
-			/*events:{
+			height: '300',
+			events:{
 				'onReady': onPlayerReady,
 				'onStateChange' : onPlayerStateChange
-			}*/
+			}
 		});
 	};
 	
-	var playModalPlayer = function(id) {
+	var onPlayerReady = function(event){
+		playModalPlayer($scope.num);
+	};
+	
+	var onPlayerStateChange = function(event){
+		switch(event.target.getPlayerState()){
+			case -1:
+				break;
+			case 0:
+				if($scope.auto.check){
+					$scope.player.playVideo();
+				}else if($scope.shuffle.check){
+					shufflePlayModalPlayer();
+				}else if($scope.repeat.check){
+					$scope.num = $scope.num+1;
+					playModalPlayer($scope.num);
+				}
+				break;
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 5:
+				break;
+			default :
+				break;
+		}
+	};
+	
+	var shufflePlayModalPlayer = function(num) {
+		playModalPlayer(Math.floor(Math.random() * $scope.playList.length));
+	};
+	
+	var playModalPlayer = function(num) {
+		var cnt = $scope.playList.length;
+		console.log("num = "+num+" cnt = "+cnt);
+		if(num == cnt) { num = 0; }
+			
+		console.log("PlayNum = "+num+" PlayModalPlayer id = "+$scope.playList[num]);
 		$scope.player.cueVideoById({
-			'videoId': id,
+			'videoId': $scope.playList[num],
 			'suggestedQuality': 'large'
 		});
 		$scope.player.playVideo();
+		
+		convertList(angular.element("#"+$scope.vlistElemStr+num));
 	};
 	
 	var convertList = function(elemJlite){
