@@ -83,7 +83,7 @@ searchModule.controller('searchController', ['$scope','$filter','$modal', '$log'
 		
 		$http.post(path+"/insertRepeat", $.param(params), {
 		}).success(function(data, status){
-			alert(data.comment);
+			alert("등록완료. 최상위 메뉴의 반복듣기를 선택해주세요.");
 		}).error(function(data, status){
 			alert("ERROR");
 		});
