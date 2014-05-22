@@ -16,12 +16,13 @@
 			<img class="btn-media-forward btn-opacity-4" src="http://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="Forward"/>
 		</span>
 		<span class="btn-right-area">
-			<img class="btn-media-repeat" ng-class="{btnOpacity85: repeat}" ng-click="repeat=!repeat" src="http://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="Repeat"/>
-			<img class="btn-media-suffle" ng-class="{btnOpacity85: suffle}" ng-click="suffle=!suffle" src="http://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="Suffle"/>
+			<img class="btn-media-auto" ng-class="{btnOpacity99: auto.check}" ng-click="auto.check=!auto.check; repeat.check=false; shuffle.check=false" src="http://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="Auto"/>
+			<img class="btn-media-repeat" ng-class="{btnOpacity70: repeat.check}" ng-click="repeat.check=!repeat.check; auto.check=false" src="http://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="Repeat"/>
+			<img class="btn-media-shuffle" ng-class="{btnOpacity70: shuffle.check}" ng-click="shuffle.check=!shuffle.check; auto.check=false" src="http://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="shuffle"/>
 		</span>
 	</div>
 	<ol class="repeat-right-video-body">
-		<li class="repeat-right-video-row" ng-mouseover="listOver($event)" ng-mouseleave="listLeave($event)" ng-click="listClick($event,video.YOUTUBEID)" ng-repeat="video in videos">
+		<li id="vlist{{$index}}" class="repeat-right-video-row" ng-mouseover="listOver($event)" ng-mouseleave="listLeave($event)" ng-click="listClick($event,$index,video.YOUTUBEID)" ng-repeat="video in videos">
 			<span class="red-triangle display-hide"> ▶ </span>
 			<span class="list-number display-show"> {{$index+1}} </span>  
 			<a class="repeat-right-video-link" href="#"> 
