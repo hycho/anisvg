@@ -241,6 +241,9 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, $http, $location, item
 	};
 	
 	var playModalPlayer = function(num) {
+		console.log($scope.playList.length);
+		if(($scope.playList.length-$scope.delArr.length) == 0) { return; }
+		
 		angular.forEach($scope.delArr, function(value, key){
 			if(value == num){
 				console.log("value = "+value+" num = "+num);
@@ -249,7 +252,7 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, $http, $location, item
 		});
 		
 		var cnt = $scope.playList.length;
-		console.log("num = "+num+" cnt = "+cnt);
+		
 		if(num == cnt) { num = 0; }
 			
 		console.log("PlayNum = "+num+" PlayModalPlayer id = "+$scope.playList[num]);
