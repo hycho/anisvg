@@ -41,7 +41,7 @@
 		<div class="form-join">
 			<input class="btn btn-primary btn-block" type="button" id="sign-in-google" value="Login with Google"> 
 			<input class="btn btn-primary btn-block" type="button" id="sign-in-twitter" value="Login with Twitter">
-			<input class="btn btn-primary btn-block" type="button" id="sign-in-twitter" ng-click="goJoinPage()" value="Join Harpy">
+			<input class="btn btn-primary btn-block" type="button" id="sign-in-twitter" ng-click="joinOpen('lg')" value="Join Harpy">
 		</div>
 	</div>
 	<!-- /container -->
