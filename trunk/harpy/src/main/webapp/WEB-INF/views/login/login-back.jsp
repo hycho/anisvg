@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html ng-app="loginModule">
@@ -21,27 +21,14 @@
 	<div class="container" ng-controller="loginController">
 		<form class="form-signin" role="form" action="<c:url value='/harpy/j_spring_security_check' />" id="loginForm" method="post">
 			<h2 class="form-signin-heading">Please log-in</h2>
-			<div class="form-group">
-				<label class="sr-only" for="exampleInputEmail2">User Id</label> 
-				<input id="j_username" name="j_username" type="text" class="form-control" placeholder="User Id" required autofocus>
-			</div>
-			<div class="form-group">
-				<label class="sr-only" for="exampleInputPassword2">Password</label> 
-				<input id="j_password" name="j_password" type="password" class="form-control" placeholder="Password" required>
-			</div>
-			<div class="checkbox">
-				<label> 
-					<input type="checkbox"> Remember me
-				</label>
-			</div>
-			<div class="form-group">
-				<button type="submit" class="btn btn-success btn-block">Log-in</button>
-			</div>
+			<input id="j_username" name="j_username" type="text" class="form-control" placeholder="UserId" required autofocus />
+			<input id="j_password" name="j_password" type="password" class="form-control" placeholder="Password" required /> 
+			<p style="text-align:right">
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Log-in</button>
+			</p>
 		</form>
 		<div class="form-join">
-			<input class="btn btn-primary btn-block" type="button" id="sign-in-google" value="Login with Google"> 
-			<input class="btn btn-primary btn-block" type="button" id="sign-in-twitter" value="Login with Twitter">
-			<input class="btn btn-primary btn-block" type="button" id="sign-in-twitter" ng-click="goJoinPage()" value="Join Harpy">
+			<button class="btn btn-lg btn-primary btn-block" ng-click="goJoinPage()">Join</button>
 		</div>
 	</div>
 	<!-- /container -->
