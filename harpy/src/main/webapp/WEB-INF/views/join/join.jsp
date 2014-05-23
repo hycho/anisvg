@@ -18,18 +18,17 @@
 
 </head>
 <body>
-	<div class="container" ng-controller="loginController">
-		<form class="form-signin" role="form" action="<c:url value='/harpy/j_spring_security_check' />" id="loginForm" method="post">
+	<div class="container">
+		<form class="form-signin" ng-controller="loginController" role="form" action="<c:url value='/harpy/j_spring_security_check' />" id="loginForm" method="post">
 			<h2 class="form-signin-heading">Please log-in</h2>
 			<input id="j_username" name="j_username" type="text" class="form-control" placeholder="UserId" required autofocus />
 			<input id="j_password" name="j_password" type="password" class="form-control" placeholder="Password" required /> 
 			<p style="text-align:right">
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Log-in</button>
+			<button class="btn btn-primary" type="submit">Log-in</button>
+			<button class="btn btn-primary" ng-click="goJoinPage()">Join</button>
+			
 			</p>
 		</form>
-		<div class="form-join">
-			<button class="btn btn-lg btn-primary btn-block" ng-click="goJoinPage()">Join</button>
-		</div>
 	</div>
 	<!-- /container -->
 

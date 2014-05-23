@@ -68,8 +68,8 @@ searchModule.controller('searchController', ['$scope','$filter','$modal', '$log'
 	};
 	
 	$scope.insertRepeat = function(youtubeid, title, desc, thumburl, recommend){
-		console.log("youtubeid = "+youtubeid.substring(youtubeid.lastIndexOf(":")+1)+", title = "+title+", desc = "+desc+", thumburl = "+thumburl+", recommend = "+Math.round(recommend));
-		console.log("user id = "+angular.element("#userid").val());
+//		console.log("youtubeid = "+youtubeid.substring(youtubeid.lastIndexOf(":")+1)+", title = "+title+", desc = "+desc+", thumburl = "+thumburl+", recommend = "+Math.round(recommend));
+//		console.log("user id = "+angular.element("#userid").val());
 		
 		var path = $location.absUrl().substr(0, $location.absUrl().lastIndexOf("/"));
 		var params = {
@@ -91,7 +91,7 @@ searchModule.controller('searchController', ['$scope','$filter','$modal', '$log'
 	
 	// mapping function video = html
 	var videoMapping = function(data){
-		console.log(data);
+//		console.log(data);
 		$scope.entries = {data : $filter("partition")(data.feed.entry, 4)};
 		$scope.bigTotalItems = data.feed.openSearch$totalResults.$t;
 	};
@@ -119,8 +119,7 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, $http, $location, item
 	};
 	
 	$scope.$watch('$viewContentLoaded', function(){
-		console.log("init modal");
-		
+//		console.log("init modal");
 		initModalPlayer();
 	});
 
@@ -149,8 +148,8 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, $http, $location, item
 	
 	$scope.menuOptions = [
 	    ['삭제하기', function ($itemScope, $event) {
-	    	console.log($itemScope);
-	    	console.log($event);
+//	    	console.log($itemScope);
+//	    	console.log($event);
 	    	deleteRepeat(angular.element($event.currentTarget));
 	    	
 	    	//console.log()
@@ -160,7 +159,7 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, $http, $location, item
 	// delete repeat list
 	var deleteRepeat = function($jLite){
 		var seq = $jLite.attr("attrSeq");
-		console.log("seq = "+seq);
+//		console.log("seq = "+seq);
 
 		var path = $location.absUrl().substr(0, $location.absUrl().lastIndexOf("/"));
 		
@@ -241,12 +240,12 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, $http, $location, item
 	};
 	
 	var playModalPlayer = function(num) {
-		console.log($scope.playList.length);
+//		console.log($scope.playList.length);
 		if(($scope.playList.length-$scope.delArr.length) == 0) { return; }
 		
 		angular.forEach($scope.delArr, function(value, key){
 			if(value == num){
-				console.log("value = "+value+" num = "+num);
+//				console.log("value = "+value+" num = "+num);
 				num++;
 			}
 		});
@@ -255,7 +254,7 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, $http, $location, item
 		
 		if(num == cnt) { num = 0; }
 			
-		console.log("PlayNum = "+num+" PlayModalPlayer id = "+$scope.playList[num]);
+//		console.log("PlayNum = "+num+" PlayModalPlayer id = "+$scope.playList[num]);
 		$scope.player.cueVideoById({
 			'videoId': $scope.playList[num],
 			'suggestedQuality': 'large'
