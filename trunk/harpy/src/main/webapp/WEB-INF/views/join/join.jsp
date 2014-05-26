@@ -15,8 +15,8 @@
 						<input class="form-control" name="lastname" placeholder="Last Name" type="text" required />
 					</div>
 				</div>
-				<input class="form-control margin-bottom-15" name="youremail" placeholder="Your Id" type="text" />
-				<input class="form-control margin-bottom-15" name="reenteremail" placeholder="Your Email" type="email" />
+				<input class="form-control margin-bottom-15" name="userid" placeholder="Your Id" type="text" />
+				<input class="form-control margin-bottom-15" name="email" placeholder="Your Email" type="email" />
 				<input class="form-control margin-bottom-15" name="password" placeholder="New Password" type="password" />
 				<label for="" > Birth Date</label>
 				<div class="row margin-bottom-15">
