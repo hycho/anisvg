@@ -38,7 +38,7 @@
 	</security:authentication-manager>	
 	
 	<bean id="jdbcUserService" class="com.harpy.support.spring.security.customAuth.JdbcUserDetailsManager" >
-		<property name="usersByUsernameQuery" value="SELECT USERID , PASSWORD, 'true' AS ENABLED, FIRSTNAME, LASTNAME, BIRTHYEAR, BIRTHMONTH, BIRTHDAY, SEX, EMAILFIRST, EMAILLAST, CONTRYCODE FROM TB_USER WHERE USERID = ?"/>
+		<property name="usersByUsernameQuery" value="SELECT USERID , PASSWORD, 'true' AS ENABLED, FIRSTNAME, LASTNAME, BIRTHYEAR, BIRTHMONTH, BIRTHDAY, SEX, EMAIL, CONTRYCODE, USEYN FROM TB_USER WHERE USERID = ? AND USEYN='Y' "/>
 		<property name="authoritiesByUsernameQuery" value="SELECT USERID , 'ROLE_ADMIN' FROM TB_USER WHERE USERID = ?"/>
 		<property name="dataSource" ref="jdbcDataSource"/>
 		<property name="mapClass" value="com.harpy.support.spring.security.customAuth.MapQueryMapper"/>
