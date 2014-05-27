@@ -3,7 +3,6 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.petrikainulainen.spring.social.signin</groupId>
     <artifactId>spring-mvc-normal</artifactId>
-    <packaging>war</packaging>
     <version>0.1</version>
     <name>Spring Social Sign In MVC Normal</name>
     <description>
@@ -33,28 +32,12 @@
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <properties>
-                <build.profile.id>dev</build.profile.id>
-            </properties>
-        </profile>
-        <profile>
-            <id>integration-test</id>
-            <properties>
-                <build.profile.id>integration-test</build.profile.id>
-                <skip.integration.tests>false</skip.integration.tests>
-                <skip.unit.tests>true</skip.unit.tests>
-            </properties>
-        </profile>
-    </profiles>
+    
 
     <build>
         <finalName>spring-social-normal-mvc</finalName>
         <filters>
             <filter>profiles/${build.profile.id}/config.properties</filter>
-            <filter>profiles/${build.profile.id}/socialConfig.properties</filter>
         </filters>
         <resources>
             <resource>
